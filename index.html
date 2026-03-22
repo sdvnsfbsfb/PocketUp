@@ -756,6 +756,10 @@ function PocketUp(){
     const {data:{subscription}}=sb.auth.onAuthStateChange((_e,session)=>{
       setUser(session?.user??null);
       hideCssSplash();
+     const {data:{subscription}}=sb.auth.onAuthStateChange((_e,session)=>{
+  setUser(session?.user??null);
+  hideCssSplash();  // ← ajoute cette ligne ici si pas déjà présente
+```
       if(session?.user){if(!dataLoadedRef.current){dataLoadedRef.current=true;loadAllData(session.user);}}
       else{dataLoadedRef.current=false;setProfil(null);setTransactions([]);setObjectifs([]);setDefis([]);}
     });
